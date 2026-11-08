@@ -1,9 +1,10 @@
 # Vida Wallet
 
-**The free, self-custody Kaspa wallet for the Vida ecosystem.**
+**The free, self-custody Kaspa + TAO wallet for the Vida ecosystem.**
 
-Vida Wallet is free and always free. Every wallet is password-encrypted at rest
-with AES-256-GCM (scrypt-derived key) and secured by a 24-word BIP39 seed
+Vida Wallet is free and always free. It holds both **KAS** (Kaspa) and **TAO**
+(Bittensor) — one wallet, both networks. Every wallet is password-encrypted at
+rest with AES-256-GCM (scrypt-derived key) and secured by a 24-word BIP39 seed
 phrase (256-bit entropy) that **you** hold. Vida never sees your keys.
 
 ## Security model
@@ -28,7 +29,7 @@ phrase (256-bit entropy) that **you** hold. Vida never sees your keys.
 | `secure_wallet.py` | `VidaWallet` — password-encrypted, seed-phrase-based wallet (create / restore / send / receive) |
 | `wallet_service.py` | Wallet service for the Vida Commerce bridge (Vida-to-Vida, encrypted) |
 | `wallet_rpc_server.py` | JSON-RPC server exposing wallet ops on localhost |
-| `wallet_integration.py` | Integration layer for the Vida Oracle / Marketplace |
+| `wallet_integration.py` | Integration layer for the Vida Oracle / Marketplace (incl. TAO rail) |
 | `dashboard-ui.html` | Browser dashboard UI |
 | `start.sh` | Service launcher (network + node endpoint via env vars) |
 
@@ -55,9 +56,11 @@ w = VidaWallet.create(password="...", mnemonic_phrase="word1 word2 ... word24")
 
 ## License
 
-Vida Wallet is free to use — including using it to hold, send, and receive
-Kaspa for business or commerce. **You may not take this code, in whole or in
-part, to build, operate, or distribute your own wallet product.** See LICENSE
-for the full terms.
+Vida Wallet is licensed under the **Business Source License 1.1 (BSL 1.1)**.
+You may use it freely — including holding, sending, and receiving KAS and TAO
+for yourself or your business. **You may not use this code, in whole or in
+part, to build, operate, or distribute your own wallet product or wallet
+service.** On the Change Date (four years after each release), the code
+converts to Apache 2.0. See LICENSE for the full terms.
 
 Contact: Vidadigitalsystems@gmail.com

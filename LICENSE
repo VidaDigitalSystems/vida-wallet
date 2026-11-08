@@ -1,44 +1,59 @@
-VIDA WALLET LICENSE — Vida Digital Systems
+Business Source License 1.1
+
+Parameters
+
+Licensor:             Vida Digital Systems
+Licensed Work:        Vida Wallet
+Additional Use Grant: You may make use of the Licensed Work for personal or
+                      internal business purposes, including using the wallet
+                      to hold, send, and receive KAS (Kaspa) and TAO
+                      (Bittensor) for yourself, your business, or on behalf
+                      of customers as a custodian. You may not use or
+                      distribute the Licensed Work for the purpose of
+                      creating, operating, or distributing a wallet product
+                      or wallet service.
+Change Date:          Four years from the release date of each version of
+                      the Licensed Work.
+Change License:       Apache License, Version 2.0
+
+Terms
+
+The Licensor hereby grants you the right to copy, modify, create derivative
+works, redistribute, and make non-production use of the Licensed Work. An
+additional use of the Licensed Work is allowed under the terms of the
+Additional Use Grant above.
+
+You may make production use of the Licensed Work only under the terms of the
+Additional Use Grant above. Any production use outside the terms of the
+Additional Use Grant is prohibited.
+
+You may not alter, remove, or obscure any licensing, copyright, or other
+notices of the Licensor in the Licensed Work.
+
+If you receive the Licensed Work as part of a larger work that includes other
+works licensed under different licenses, the additional restrictions in this
+license apply only to the portions of the Licensed Work governed by this
+license.
+
+THE LICENSED WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE LICENSED WORK OR THE USE OR OTHER DEALINGS IN THE LICENSED WORK.
+
+---
+
+Apache License, Version 2.0 (Change License)
+
+Upon the Change Date, the Licensed Work is made available under the Apache
+License, Version 2.0 (the "Change License"). The full text of the Apache
+License, Version 2.0 is available at:
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+The Change License governs use of the Licensed Work from the Change Date
+forward. Prior to the Change Date, the terms above apply.
 
 Copyright (c) 2026 Vida Digital Systems. All rights reserved.
-
-1. GRANT. You may use, copy, modify, and run this software for any purpose,
-   including holding, sending, and receiving Kaspa for business or commerce.
-
-2. RESTRICTIONS. You may NOT, without a separate written license from
-   Vida Digital Systems:
-   (a) build, operate, distribute, or offer to others a wallet product,
-       wallet service, or wallet application derived from this software,
-       in whole or in part;
-   (b) relicense, sublicense, or redistribute this software as a
-       standalone wallet or as part of a wallet product;
-   (c) remove, obscure, or alter this notice, the copyright notice, or
-       the attribution to Vida Digital Systems.
-
-3. WHAT IS ALLOWED. Using Vida Wallet to transact — for yourself, your
-   business, or on behalf of customers as a custodian — is permitted. The
-   restriction is on re-creating a wallet product from this code, not on
-   using the wallet as a wallet.
-
-4. ATTRIBUTION. Any permitted redistribution of this software, in whole or
-   in part, must retain the original copyright notice and attribution to
-   Vida Digital Systems.
-
-5. SECURITY. Wallet software carries inherent risk. If you modify this
-   software, you assume responsibility for any resulting loss of funds.
-   Vida Digital Systems provides no warranty of fitness for any purpose.
-
-6. NO WARRANTY. THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
-   KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
-   NON-INFRINGEMENT. IN NO EVENT SHALL VIDA DIGITAL SYSTEMS BE LIABLE FOR
-   ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF
-   CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-   WITH THIS SOFTWARE OR ITS USE.
-
-7. COMMERCIAL LICENSING. To obtain a license to build a wallet product on
-   this code, contact Vidadigitalsystems@gmail.com.
-
-8. TERMINATION. This license terminates automatically upon any violation
-   of the restrictions above. Upon termination, you must cease all use
-   and delete all copies of the software.
+Contact: Vidadigitalsystems@gmail.com

@@ -2,10 +2,9 @@
 
 **The free, self-custody Kaspa wallet for the Vida ecosystem.**
 
-Vida Wallet is free and always free — it drives adoption while Vida Commerce
-earns the revenue. Every wallet is password-encrypted at rest with AES-256-GCM
-(scrypt-derived key) and secured by a 24-word BIP39 seed phrase (256-bit
-entropy) that **you** hold. Vida never sees your keys.
+Vida Wallet is free and always free. Every wallet is password-encrypted at rest
+with AES-256-GCM (scrypt-derived key) and secured by a 24-word BIP39 seed
+phrase (256-bit entropy) that **you** hold. Vida never sees your keys.
 
 ## Security model
 
@@ -56,5 +55,9 @@ w = VidaWallet.create(password="...", mnemonic_phrase="word1 word2 ... word24")
 
 ## License
 
-Proprietary © Vida Digital Systems. The wallet is free to use.
+Vida Wallet is free for personal, non-commercial use. **You may not use this
+code, in whole or in part, to build or operate a competing wallet product, or
+for any commercial purpose, without a written license from Vida Digital
+Systems.** See LICENSE for the full terms.
+
 Contact: Vidadigitalsystems@gmail.com

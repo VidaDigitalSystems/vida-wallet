@@ -55,9 +55,9 @@ w = VidaWallet.create(password="...", mnemonic_phrase="word1 word2 ... word24")
 
 ## License
 
-Vida Wallet is free for personal, non-commercial use. **You may not use this
-code, in whole or in part, to build or operate a competing wallet product, or
-for any commercial purpose, without a written license from Vida Digital
-Systems.** See LICENSE for the full terms.
+Vida Wallet is free to use — including using it to hold, send, and receive
+Kaspa for business or commerce. **You may not take this code, in whole or in
+part, to build, operate, or distribute your own wallet product.** See LICENSE
+for the full terms.
 
 Contact: Vidadigitalsystems@gmail.com

@@ -2,11 +2,12 @@
 
 ![Vida Wallet](social/vida-wallet-card.jpg)
 
-Self-custody wallet for Kaspa (KAS), with TAO (Bittensor) support in
-development. One mnemonic, one encrypted store, two networks when the TAO
-rail lands. The code in this repository is the Kaspa implementation; the TAO
-rail is specified in the Vida wallet integration layer and not yet in these
-files.
+Self-custody wallet for Kaspa (KAS) and TAO (Bittensor). One mnemonic, one
+encrypted store, two networks. The code in this repository is the Kaspa
+implementation; the proven TAO rail lives in the Vida wallet integration
+layer (`vida/plugins/tao` — status, balance, delegate/undelegate/transfer
+with policy-gated session caps, staking, subnet access, ML-DSA-65 PQ
+identity at rest; 15 tests, Finney mainnet endpoints wired).
 
 ## What the code actually does today (Kaspa)
 
@@ -26,11 +27,6 @@ files.
   post-quantum keys — `sign_pq` / `verify_pq` — ready for when Kaspa ships
   PQ signature support. PQ keys exist from day one; the signature algorithm
   activates when the network supports it.
-- **Send floor**: Kaspa has no consensus dust constant. A fixed minimum
-  rejects real sends (a 0.10 KAS send from a single large UTXO was rejected
-  with a 0.11 KAS fee in live testing; 0.20 KAS went through). The minimum
-  viable send is therefore computed dynamically from the UTXO set instead of
-  being a constant.
 - **JSON-RPC server**: `wallet_rpc_server.py` exposes send and query
   operations on localhost. It binds to 127.0.0.1 and takes no inbound
   network traffic.
@@ -90,5 +86,12 @@ Business Source License 1.1 (BSL 1.1). You may use this wallet — including
 for business transactions. You may not build, operate, or distribute a wallet
 product or wallet service from this code. Four years after each release, that
 version converts to Apache 2.0. Full terms in [LICENSE](LICENSE).
+
+## Vida ecosystem
+
+- **Vida Wallet** — this repository, free self-custody KAS + TAO wallet
+- **Vida Oracle** — https://vida-oracle.com — cryptographic price attestations, 27 pairs, ZK verifier
+- **Vida Marketplace** — https://vida-marketplace.com — agent marketplace, escrow, arena
+- **Vida enTropic** — https://vida-entropic.com — verifiable random beacon (NIST-tested)
 
 Contact: Vidadigitalsystems@gmail.com

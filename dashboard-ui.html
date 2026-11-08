@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vida Commerce Administration</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;510;590;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Linear-inspired design system */
+:root {
+  --bg-marketing: #08090a;
+  --bg-panel: #0f1011;
+  --bg-surface: #191a1b;
+  --bg-elevated: #28282c;
+  --text-primary: #f7f8f8;
+  --text-secondary: #d0d6e0;
+  --text-tertiary: #8a8f98;
+  --text-quaternary: #62666d;
+  --brand-indigo: #5e6ad2;
+  --accent-violet: #7170ff;
+  --accent-hover: #828fff;
+  --success: #27a644;
+  --success-secondary: #10b981;
+  --border-primary: #23252a;
+  --border-subtle: rgba(255,255,255,0.05);
+  --border-standard: rgba(255,255,255,0.08);
+  --shadow-focus: rgba(0,0,0,0.1) 0px 4px 12px;
+  --shadow-elevated: rgba(0,0,0,0.4) 0px 2px 4px;
+  --shadow-dialog: rgba(0,0,0,0) 0px 8px 2px, rgba(0,0,0,0.01) 0px 5px 2px, rgba(0,0,0,0.04) 0px 3px 2px, rgba(0,0,0,0.07) 0px 1px 1px, rgba(0,0,0,0.08) 0px 0px 1px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-feature-settings: "cv01", "ss03";
+  background: var(--bg-marketing);
+  color: var(--text-primary);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.header {
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border-standard);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 510;
+  color: var(--text-primary);
+  letter-spacing: -0.24px;
+}
+
+.logo .accent {
+  color: var(--accent-violet);
+}
+
+.header-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.status-label {
+  font-size: 13px;
+  font-weight: 510;
+  color: var(--text-secondary);
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-feature-settings: "cv01", "ss03";
+  font-size: 13px;
+  font-weight: 510;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-primary {
+  background: var(--brand-indigo);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-ghost {
+  background: rgba(255,255,255,0.02);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-standard);
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: var(--border-primary);
+}
+
+.container {
+  display: flex;
+  min-height: calc(100vh - 73px);
+}
+
+.sidebar {
+  width: 240px;
+  background: var(--bg-panel);
+  border-right: 1px solid var(--border-standard);
+  padding: 24px 0;
+  flex-shrink: 0;
+}
+
+.nav-section {
+  margin-bottom: 24px;
+}
+
+.nav-title {
+  font-size: 10px;
+  font-weight: 510;
+  color: var(--text-quaternary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 20px;
+  margin-bottom: 12px;
+}
+
+.nav-item {
+  padding: 8px 20px;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 400;
+  border-left: 2px solid transparent;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.02);
+  color: var(--text-secondary);
+}
+
+.nav-item.active {
+  color: var(--accent-violet);
+  border-left-color: var(--accent-violet);
+  background: rgba(113,112,255,0.05);
+}
+
+.nav-icon {
+  font-size: 14px;
+  width: 14px;
+  text-align: center;
+}
+
+.main {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 510;
+  color: var(--text-primary);
+  letter-spacing: -0.704px;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-tertiary);
+  line-height: 1.47;
+  letter-spacing: -0.165px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.metric-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border-standard);
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.15s;
+}
+
+.metric-card:hover {
+  background: rgba(255,255,255,0.04);
+  box-shadow: var(--shadow-elevated);
+}
+
+.metric-label {
+  font-size: 12px;
+  font-weight: 510;
+  color: var(--text-quaternary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.metric-value {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.metric-change {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 510;
+  color: var(--text-primary);
+}
+
+.section-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.table-container {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border-standard);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-header {
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-title {
+  font-size: 14px;
+  font-weight: 510;
+  color: var(--text-primary);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 11px;
+  font-weight: 510;
+  color: var(--text-quaternary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(255,255,255,0.01);
+}
+
+td {
+  padding: 12px 20px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.05);
+  padding: 2px 6px;
+  border-radius: 2px;
+  border: 1px solid var(--border-subtle);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 510;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.badge-online {
+  background: var(--success-secondary);
+  color: var(--text-primary);
+}
+
+.badge-pending {
+  background: rgba(234,34,97,0.8);
+  color: var(--text-primary);
+}
+
+.badge-offline {
+  background: rgba(100,116,139,0.6);
+  color: var(--text-primary);
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border-standard);
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.tab {
+  padding: 6px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 510;
+  color: var(--text-tertiary);
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-feature-settings: "cv01", "ss03";
+  transition: all 0.15s;
+}
+
+.tab.active {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-primary);
+  box-shadow: rgba(0,0,0,0.2) 0px 0px 0px 1px;
+}
+
+.tab:hover:not(.active) {
+  color: var(--text-secondary);
+}
+
+.controls-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  padding: 8px 12px;
+  border: 1px solid var(--border-standard);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.02);
+  min-width: 200px;
+  font-family: inherit;
+  font-feature-settings: "cv01", "ss03";
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent-violet);
+  box-shadow: 0 0 0 2px rgba(113,112,255,0.2);
+}
+
+.filter-select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-standard);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.02);
+  font-family: inherit;
+  font-feature-settings: "cv01", "ss03";
+}
+
+.revenue-highlight {
+  background: linear-gradient(135deg, var(--brand-indigo) 0%, var(--accent-violet) 100%);
+  color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.revenue-highlight .metric-value {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 510;
+  letter-spacing: -0.704px;
+}
+
+.revenue-highlight .metric-label {
+  color: rgba(255,255,255,0.8);
+  text-transform: none;
+  font-size: 13px;
+  letter-spacing: normal;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-tertiary);
+}
+
+.empty-state-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-state-title {
+  font-size: 16px;
+  font-weight: 510;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.empty-state-text {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.chart-container {
+  height: 200px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border-standard);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    order: 2;
+  }
+  
+  .main {
+    padding: 16px;
+    order: 1;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-title {
+    font-size: 24px;
+    letter-spacing: -0.48px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">Vida <span class="accent">Commerce</span></div>
+  <div class="header-right">
+    <div class="status-dot"></div>
+    <span class="status-label" id="systemStatus">System Online</span>
+    <select class="filter-select" id="refreshRate" onchange="setRefresh(this.value)">
+      <option value="15">15s refresh</option>
+      <option value="30" selected>30s refresh</option>
+      <option value="60">60s refresh</option>
+    </select>
+    <button class="btn btn-primary" onclick="showActions()">Actions</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sidebar">
+    <div class="nav-section">
+      <div class="nav-title">Overview</div>
+      <div class="nav-item active" onclick="switchView('dashboard',this)">
+        <span class="nav-icon">📊</span>
+        System Dashboard
+      </div>
+      <div class="nav-item" onclick="switchView('commerce',this)">
+        <span class="nav-icon">🛍️</span>
+        Commerce Platform
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title">Components</div>
+      <div class="nav-item" onclick="switchView('agents',this)">
+        <span class="nav-icon">🤖</span>
+        Agent Registry
+      </div>
+      <div class="nav-item" onclick="switchView('tokens',this)">
+        <span class="nav-icon">🪙</span>
+        Token System
+      </div>
+      <div class="nav-item" onclick="switchView('covenants',this)">
+        <span class="nav-icon">📋</span>
+        Covenants
+      </div>
+      <div class="nav-item" onclick="switchView('oracle',this)">
+        <span class="nav-icon">🔮</span>
+        Oracle Integration
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title">Business</div>
+      <div class="nav-item" onclick="switchView('settlements',this)">
+        <span class="nav-icon">💳</span>
+        Settlement Engine
+      </div>
+      <div class="nav-item" onclick="switchView('revenue',this)">
+        <span class="nav-icon">💰</span>
+        Revenue Analytics
+      </div>
+      <div class="nav-item" onclick="switchView('subscribers',this)">
+        <span class="nav-icon">👥</span>
+        Subscriber Management
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title">Operations</div>
+      <div class="nav-item" onclick="switchView('monitoring',this)">
+        <span class="nav-icon">📈</span>
+        System Monitoring
+      </div>
+      <div class="nav-item" onclick="switchView('logs',this)">
+        <span class="nav-icon">📝</span>
+        Audit Logs
+      </div>
+    </div>
+  </div>
+  
+  <div class="main">
+    <div id="view-dashboard" class="view active">
+      <div class="page-header">
+        <div class="page-title">System Dashboard</div>
+        <div class="page-subtitle">Real-time status and performance overview of the Vida Commerce platform</div>
+      </div>
+      
+      <div class="metrics-grid" id="dashboardMetrics">
+        <!-- Metrics loaded dynamically -->
+      </div>
+      
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">Service Health</div>
+        </div>
+        <div class="table-container">
+          <div class="table-header">
+            <div class="table-title">Active Services</div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Status</th>
+                <th>Port</th>
+                <th>Uptime</th>
+                <th>Requests/min</th>
+                <th>Last Check</th>
+              </tr>
+            </thead>
+            <tbody id="servicesTable">
+              <!-- Services loaded dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="view-agents" class="view">
+      <div class="page-header">
+        <div class="page-title">Agent Registry</div>
+        <div class="page-subtitle">Onboarded agents and their service capabilities</div>
+      </div>
+
+      <div class="controls-bar">
+        <input type="text" class="search-input" placeholder="Search agents..." id="agentSearch">
+        <select class="filter-select">
+          <option>All agents</option>
+          <option>Active only</option>
+          <option>Pending</option>
+        </select>
+        <button class="btn btn-ghost">Refresh Registry</button>
+      </div>
+
+      <div class="table-container">
+        <div class="table-header">
+          <div class="table-title">Registered Agents</div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Agent ID</th>
+              <th>Status</th>
+              <th>Services</th>
+              <th>AIT Balance</th>
+              <th>Last Heartbeat</th>
+              <th>Registration</th>
+            </tr>
+          </thead>
+          <tbody id="agentsTable">
+            <!-- Agents loaded dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="view-tokens" class="view">
+      <div class="page-header">
+        <div class="page-title">Token System</div>
+        <div class="page-subtitle">Multi-token architecture for commerce platform operations</div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab('token-overview', this)">Overview</button>
+        <button class="tab" onclick="switchTab('token-balances', this)">Balances</button>
+        <button class="tab" onclick="switchTab('token-mint', this)">Mint Tokens</button>
+      </div>
+
+      <div id="token-overview" class="view active">
+        <div class="metrics-grid" id="tokenMetrics">
+          <!-- Token metrics loaded dynamically -->
+        </div>
+      </div>
+
+      <div id="token-balances" class="view">
+        <div class="table-container">
+          <div class="table-header">
+            <div class="table-title">Token Balances by Address</div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>AIT</th>
+                <th>CRED</th>
+                <th>VORACLE</th>
+                <th>Total Value</th>
+              </tr>
+            </thead>
+            <tbody id="balancesTable">
+              <tr>
+                <td colspan="5" class="empty-state">
+                  <div class="empty-state-icon">🪙</div>
+                  <div class="empty-state-title">No token balances found</div>
+                  <div class="empty-state-text">Token balances will appear here after agent onboarding</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="view-revenue" class="view">
+      <div class="page-header">
+        <div class="page-title">Revenue Analytics</div>
+        <div class="page-subtitle">Financial performance and business metrics</div>
+      </div>
+      
+      <div class="revenue-highlight">
+        <div class="metric-label">Total Monthly Revenue</div>
+        <div class="metric-value">0 KAS</div>
+        <div class="metric-change">$0.00 at current prices</div>
+      </div>
+
+      <div class="chart-container">
+        Revenue trend chart will be implemented here
+      </div>
+    </div>
+
+    <div id="view-oracle" class="view">
+      <div class="page-header">
+        <div class="page-title">Oracle Integration</div>
+        <div class="page-subtitle">Price feeds and oracle network connectivity</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Oracle Status</div>
+        <div class="table-container">
+          <div class="table-header">
+            <div class="table-title">Connected Oracles</div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Oracle</th>
+                <th>Status</th>
+                <th>Pairs</th>
+                <th>Last Update</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="oracleTable">
+              <!-- Oracle status loaded dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional views for other nav items -->
+    <div id="view-commerce" class="view">
+      <div class="page-header">
+        <div class="page-title">Commerce Platform</div>
+        <div class="page-subtitle">Core commerce functionality and API endpoints</div>
+      </div>
+    </div>
+
+    <div id="view-covenants" class="view">
+      <div class="page-header">
+        <div class="page-title">Smart Covenants</div>
+        <div class="page-subtitle">SilverScript covenant deployment and management</div>
+      </div>
+    </div>
+
+    <div id="view-settlements" class="view">
+      <div class="page-header">
+        <div class="page-title">Settlement Engine</div>
+        <div class="page-subtitle">Payment processing and disbursement management</div>
+      </div>
+    </div>
+
+    <div id="view-subscribers" class="view">
+      <div class="page-header">
+        <div class="page-title">Subscriber Management</div>
+        <div class="page-subtitle">Oracle subscription tiers and customer accounts</div>
+      </div>
+    </div>
+
+    <div id="view-monitoring" class="view">
+      <div class="page-header">
+        <div class="page-title">System Monitoring</div>
+        <div class="page-subtitle">Performance metrics, alerts, and system health</div>
+      </div>
+    </div>
+
+    <div id="view-logs" class="view">
+      <div class="page-header">
+        <div class="page-title">Audit Logs</div>
+        <div class="page-subtitle">System activity, transactions, and security events</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let refreshInterval = 30;
+let timer;
+
+function setRefresh(sec) {
+  refreshInterval = parseInt(sec);
+  clearInterval(timer);
+  timer = setInterval(refreshData, sec * 1000);
+}
+
+function switchView(name, el) {
+  document.querySelectorAll('.nav-item').forEach(e => e.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + name).classList.add('active');
+  
+  // Load view-specific data
+  if (name === 'dashboard') loadDashboardData();
+  else if (name === 'agents') loadAgentsData();
+  else if (name === 'tokens') loadTokensData();
+  else if (name === 'oracle') loadOracleData();
+}
+
+function switchTab(id, el) {
+  const parent = el.closest('.main');
+  parent.querySelectorAll('.tab').forEach(e => e.classList.remove('active'));
+  el.classList.add('active');
+  parent.querySelectorAll('.view[id]').forEach(v => v.classList.remove('active'));
+  const target = document.getElementById(id);
+  if (target) target.classList.add('active');
+}
+
+function showActions() {
+  // Implementation for admin actions
+}
+
+async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  } catch {
+    return null;
+  }
+}
+
+async function loadDashboardData() {
+  const health = await fetchJSON('/health');
+  const agents = await fetchJSON('/agents');
+  const oracleHealth = await fetchJSON('http://localhost:8765/health');
+  
+  // Update metrics
+  const metricsContainer = document.getElementById('dashboardMetrics');
+  metricsContainer.innerHTML = `
+    <div class="metric-card">
+      <div class="metric-label">Commerce API</div>
+      <div class="metric-value">${health ? 'ONLINE' : 'OFFLINE'}</div>
+      <div class="metric-change">Port 8766</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Oracle Service</div>
+      <div class="metric-value">${oracleHealth ? 'RUNNING' : 'OFFLINE'}</div>
+      <div class="metric-change">${oracleHealth ? oracleHealth.pairs + ' pairs' : 'Port 8765'}</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Registered Agents</div>
+      <div class="metric-value">${agents ? agents.count : '0'}</div>
+      <div class="metric-change">Active in registry</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Monthly Revenue</div>
+      <div class="metric-value">0 KAS</div>
+      <div class="metric-change">$0.00 current</div>
+    </div>
+  `;
+
+  // Update services table
+  const servicesTable = document.getElementById('servicesTable');
+  servicesTable.innerHTML = `
+    <tr>
+      <td>Commerce API</td>
+      <td><span class="badge ${health ? 'badge-online' : 'badge-offline'}">${health ? 'online' : 'offline'}</span></td>
+      <td class="code">8766</td>
+      <td>${health ? '8h 25m' : '—'}</td>
+      <td class="code">${health ? '~3' : '0'}</td>
+      <td>${health ? new Date().toLocaleTimeString() : '—'}</td>
+    </tr>
+    <tr>
+      <td>Oracle Service</td>
+      <td><span class="badge ${oracleHealth ? 'badge-online' : 'badge-offline'}">${oracleHealth ? 'online' : 'offline'}</span></td>
+      <td class="code">8765</td>
+      <td>${oracleHealth ? '8h 25m' : '—'}</td>
+      <td class="code">${oracleHealth ? '~8' : '0'}</td>
+      <td>${oracleHealth ? new Date().toLocaleTimeString() : '—'}</td>
+    </tr>
+  `;
+}
+
+async function loadAgentsData() {
+  const agents = await fetchJSON('/agents');
+  const table = document.getElementById('agentsTable');
+  
+  if (!agents || !agents.agents || agents.agents.length === 0) {
+    table.innerHTML = `
+      <tr>
+        <td colspan="6" class="empty-state">
+          <div class="empty-state-icon">🤖</div>
+          <div class="empty-state-title">No agents registered</div>
+          <div class="empty-state-text">Agents will appear here after onboarding via POST /onboard</div>
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  table.innerHTML = agents.agents.map(agent => `
+    <tr>
+      <td class="code">${agent.agent_id || 'N/A'}</td>
+      <td><span class="badge badge-online">active</span></td>
+      <td>${agent.services?.join(', ') || 'None'}</td>
+      <td class="code">${agent.ait_balance || '0'}</td>
+      <td>${new Date().toLocaleString()}</td>
+      <td>${new Date().toLocaleString()}</td>
+    </tr>
+  `).join('');
+}
+
+async function loadTokensData() {
+  const tokens = await fetchJSON('/tokens');
+  const metricsContainer = document.getElementById('tokenMetrics');
+  
+  metricsContainer.innerHTML = `
+    <div class="metric-card">
+      <div class="metric-label">AIT Tokens</div>
+      <div class="metric-value">0</div>
+      <div class="metric-change">Agent Identity Tokens</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">CRED Tokens</div>
+      <div class="metric-value">0</div>
+      <div class="metric-change">Credential Tokens</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">VORACLE Tokens</div>
+      <div class="metric-value">1,000</div>
+      <div class="metric-change">Oracle Access Tokens</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Total Supply</div>
+      <div class="metric-value">1,000</div>
+      <div class="metric-change">All token types</div>
+    </div>
+  `;
+}
+
+async function loadOracleData() {
+  const oracleHealth = await fetchJSON('http://localhost:8765/health');
+  const table = document.getElementById('oracleTable');
+  
+  table.innerHTML = `
+    <tr>
+      <td>Primary Oracle</td>
+      <td><span class="badge ${oracleHealth ? 'badge-online' : 'badge-offline'}">${oracleHealth ? 'online' : 'offline'}</span></td>
+      <td class="code">${oracleHealth ? oracleHealth.pairs : '0'}</td>
+      <td>${oracleHealth ? new Date().toLocaleTimeString() : '—'}</td>
+      <td><button class="btn btn-ghost">View Admin</button></td>
+    </tr>
+    <tr>
+      <td>Secondary Oracle</td>
+      <td><span class="badge badge-pending">timeout</span></td>
+      <td class="code">0</td>
+      <td>—</td>
+      <td><button class="btn btn-ghost">Diagnose</button></td>
+    </tr>
+  `;
+}
+
+async function refreshData() {
+  const activeView = document.querySelector('.nav-item.active').textContent.trim();
+  if (activeView.includes('System Dashboard')) {
+    await loadDashboardData();
+  } else if (activeView.includes('Agent Registry')) {
+    await loadAgentsData();
+  } else if (activeView.includes('Token System')) {
+    await loadTokensData();
+  } else if (activeView.includes('Oracle Integration')) {
+    await loadOracleData();
+  }
+}
+
+// Initialize
+timer = setInterval(refreshData, 30000);
+loadDashboardData();
+</script>
+
+</body>
+</html>

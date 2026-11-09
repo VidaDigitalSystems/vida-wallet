@@ -27,3 +27,12 @@ text as approved copy.
 - Changes vs V1: character replaced with the new girl (long curly blonde hair, fair skin, green eyes, no sunglasses); title reads "Vida Wallet" (full title); second background figure removed; "every move settleable on-chain" line removed (games-lane claim, not wallet copy) — line reads "Kaspa mainnet-proven - proven covenants available".
 - Captain-approved (eye gate) 2026-11-08. Machine QC (gemini verbatim read): all lines exact, no misspellings, no overlap, no background figure.
 - V1 card files remain as archive; do not use in production.
+
+## Vida Wallet card V3 (2026-11-08, approved)
+
+- Master: social/vida-wallet-card-v3-expo.jpg (1920x1088, gateway req 121, 20cr)
+- Social window: social/vida-wallet-card-v3.jpg (1280x640, full-art fit, navy padding, no crop)
+- X post: social/vida-wallet-card-v3-square.jpg (1200x1200, full-art fit, no crop)
+- Changes vs V2: line 4 reads "Kaspa mainnet-proven - proven covenants available" — the games-lane phrase "every move settleable on-chain" removed (Captain ruling: wallet copy must not conflate games-lane claims).
+- Captain-approved (eye gate) 2026-11-08. Machine QC: all lines exact, no misspellings, phrase absent, no crop, no overlap.
+- V1 and V2 card files remain as archive; do not use in production.

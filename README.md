@@ -61,6 +61,10 @@ w = VidaWallet.create(
 - **Vida Marketplace** - https://vida-marketplace.com
 - **Vida enTropic** - https://vida-entropic.com
 
+## Hashtags
+
+#Kaspa #KAS #TAO #Bittensor #AIAgents #AIAgent #Crypto #PostQuantum #SelfCustody
+
 ## License
 
 Business Source License 1.1 (BSL 1.1). You may use this wallet - including for business transactions. You may not build, operate, or distribute a wallet product or wallet service from this code. Four years after each release, that version converts to Apache 2.0. Full terms in [LICENSE](LICENSE).

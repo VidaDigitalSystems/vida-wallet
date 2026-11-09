@@ -36,3 +36,12 @@ text as approved copy.
 - Changes vs V2: line 4 reads "Kaspa mainnet-proven - proven covenants available" — the games-lane phrase "every move settleable on-chain" removed (Captain ruling: wallet copy must not conflate games-lane claims).
 - Captain-approved (eye gate) 2026-11-08. Machine QC: all lines exact, no misspellings, phrase absent, no crop, no overlap.
 - V1 and V2 card files remain as archive; do not use in production.
+
+## Vida Wallet card V5 (2026-11-08, req 124)
+
+- Master: social/vida-wallet-card-v5-expo.jpg (1920x1088, gateway req 124, 20cr)
+- Social window: social/vida-wallet-card-v5.jpg (1280x640, full-art fit, pad, no crop)
+- X post: social/vida-wallet-card-v5-square.jpg (1200x1200, full-art fit, no crop)
+- Changes vs V3: text layout widened (lines span 13-88% of width vs V3's narrower band), bottom margin improved (lowest text row at 91% height).
+- Copy identical to approved V3: "Vida Wallet" title, "Kaspa mainnet-proven - proven covenants available" (no games phrase), all lines verbatim, no misspellings.
+- V1/V2/V3 remain as archive; V5 is the current card.

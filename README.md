@@ -1,6 +1,6 @@
 # Vida Wallet
 
-![Vida Wallet](social/vida-wallet-card-v3.jpg)
+![Vida Wallet](social/vida-wallet-card-v5-square.jpg)
 
 Self-custody wallet for Kaspa (KAS) and TAO (Bittensor) — both proven on mainnet. One mnemonic, one encrypted store, two networks. The code in this repository is the Kaspa implementation; the TAO rail lives in the Vida wallet integration layer (`vida/plugins/tao` - status, balance, delegate/undelegate/transfer with policy-gated session caps, staking, subnet access, ML-DSA-65 PQ identity at rest; 15 tests, Finney mainnet endpoints wired).
 

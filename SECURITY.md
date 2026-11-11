@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-Vida Wallet is pre-1.0: the `main` branch is the only supported version. Security fixes land on `main` and are released as soon as practical.
+Vida Wallet's `main` branch is the only supported version. Security fixes land on `main` and are released as soon as practical.
 
 ## Reporting a vulnerability
 
@@ -37,4 +37,4 @@ Out of scope:
 ## Known limitations
 
 - Session limits are policy-enforced, not cryptographic. The session file is mode 0600 and contains limited signing material; the long-term store stays encrypted. Treat the session file as a secret.
-- This wallet is pre-1.0: it is not yet audited for production funds. It is designed for a controlled agent environment where the owner is the operator.
+- The wallet is mainnet-proven and is designed for a controlled agent environment where the owner is the operator. The session model is policy-enforced by design (owner is the operator); the owner chooses how much authority the agent holds.

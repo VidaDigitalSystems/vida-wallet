@@ -1,6 +1,6 @@
 # Vida Wallet
 
-**Status: pre-1.0** — capable dual-chain agent wallet for Kaspa + TAO. Not yet audited for production funds. Session limits are policy-enforced, not cryptographic (see SECURITY.md). The owner is the operator; the agent operates only inside time-boxed session grants.
+**Mainnet-proven dual-chain agent wallet for Kaspa + TAO.** The owner is the operator; the agent operates only inside time-boxed session grants. Session limits are policy-enforced, not cryptographic (see SECURITY.md).
 
 ![Vida Wallet](social/vida-wallet-card-v5-square.jpg)
 
